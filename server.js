@@ -28,21 +28,29 @@ app.get('/app/rpsls/', (req, res) => {   // Null input for rpsls
 })
 
 app.get('/app/rps/play/', (req, res) => {   // WIP possibly post
-    res.status(200).send(rpsls(null));
+    res.status(200).send(rps(req.query.shot));
+})
+
+app.post('/app/rps/play/', (req, res) => {   // WIP possibly post
+    res.status(200).send(rps(req.body.shot));
 })
 
 app.get('/app/rpsls/play/', (req, res) => {   // WIP possibly post
-    res.status(200).send(rpsls(null));
+    res.status(200).send(rpsls(req.query.shot));
+})
+
+app.post('/app/rpsls/play/', (req, res) => {   // WIP possibly post
+    res.status(200).send(rpsls(req.body.shot));
 })
 
 app.get('/app/rps/play/:shot/', (req, res) => {     // User is playing rps
-    let shot = parseInt(req.params.shot)
-    res.status(200).send(rps(shot));
+    //let shot = parseInt(req.params.shot)
+    res.status(200).send(rps(req.params.shot));
 })
 
 app.get('/app/rpsls/play/:shot/', (req, res) => {   // User is playing rpsls
-    let shot = parseInt(req.params.shot)
-    res.status(200).send(rpsls(shot));
+    //let shot = parseInt(req.params.shot)
+    res.status(200).send(rpsls(req.params.shot));
 })
 
 /*app.use(function(req, res) {        // Return if no endpoint is found
